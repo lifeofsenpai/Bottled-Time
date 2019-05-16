@@ -1,0 +1,179 @@
+; no$gmb format .sym file
+; Generated automagically by ASxxxx linker V01.75 (SDK 3.0.0)
+; Area: .  .ABS.
+00:0000 s__HEADER
+00:0000 .init
+00:0000 _player
+00:0200 s__CODE
+00:02DD s__HOME
+00:04D8 s__BASE
+00:073D s__LIT
+00:073D s__GSINIT
+01:4000 s__CODE_2
+01:4000 s__CODE_3
+01:4402 s__GSINITTAIL
+01:4403 s__GSFINAL
+00:C000 .OAM
+00:C0A0 s__DATA
+00:CAE6 s__BSS
+00:CB3F s__HEAP
+00:CB3F s__BSEG
+00:CB3F s__ISEG
+00:CB3F s__XSEG
+00:CB3F s__OVERLAY
+00:E000 .STACK
+00:FF80 .refresh_OAM
+; Area: _CODE
+00:0200 _Reset_Graphics
+00:0222 _set_bkg_palette_entry
+00:024A _set_sprite_palette_entry
+00:0272 _cpu_slow
+00:028D _cpu_fast
+00:0294 _cgb_compatibility
+; Area: _HEADER
+00:01D2 _exit
+; Area: _HOME
+00:02DD .set_mode
+00:02ED .remove_VBL
+00:02F3 .remove_LCD
+00:02F9 .remove_TIM
+00:02FF .remove_SIO
+00:0305 .remove_JOY
+00:030B .add_VBL
+00:0311 .add_LCD
+00:0317 .add_TIM
+00:031D .add_SIO
+00:0323 .add_JOY
+00:0329 .remove_int
+00:0349 .add_int
+00:0365 .wait_vbl_done
+00:0365 _wait_vbl_done
+00:037C _display_off
+00:037C .display_off
+00:039D .serial_IO
+00:03CC _mode
+00:03D5 _get_mode
+00:03DA _enable_interrupts
+00:03DC _disable_interrupts
+00:03DE _reset
+00:03DE .reset
+00:03E4 _set_interrupts
+00:03EF _remove_VBL
+00:03FA _remove_LCD
+00:0405 _remove_TIM
+00:0410 _remove_SIO
+00:041B _remove_JOY
+00:0426 _add_VBL
+00:0431 _add_LCD
+00:043C _add_TIM
+00:0447 _add_SIO
+00:0452 _add_JOY
+00:045D _clock
+00:0466 __printTStates
+00:0467 banked_call
+00:0480 banked_ret
+00:0489 _main
+; Area: _BASE
+00:04D8 .set_sprite_prop
+00:04E5 _set_sprite_prop
+00:04F0 .padup
+00:04F0 _waitpadup
+00:0500 .jpad
+00:052D .wait_pad
+00:0534 _joypad
+00:0539 _waitpad
+00:0543 _set_bkg_palette
+00:056E _set_sprite_palette
+00:0599 .mv_sprite
+00:05A8 _move_sprite
+00:05B5 __mulschar
+00:05B5 __muluchar
+00:05C1 __mulsint
+00:05C1 __muluint
+00:05D5 .mulu16
+00:05D5 .mul16
+00:05EB _set_win_data
+00:05EB _set_bkg_data
+00:0638 _set_sprite_data
+00:0667 .scroll_sprite
+00:0678 _scroll_sprite
+00:0685 .set_sprite_tile
+00:0692 _set_sprite_tile
+00:069D .copy_vram
+00:06AC _get_data
+00:06AC _set_data
+00:06BF _set_bkg_tiles
+00:06D3 .set_xy_wtt
+00:06E4 .set_xy_btt
+00:06F3 .set_xy_tt
+00:0724 _set_tiles
+; Area: _LIT
+; Area: _GSINIT
+00:073D gsinit
+; Area: _GSINITTAIL
+; Area: _GSFINAL
+; Area: _DATA
+00:C0A0 _Playing
+00:C0A1 _Joy
+00:C0A2 _PlayerDirection
+00:C0A3 _PlayerAnimCycle
+00:C0A4 _PlayerAnimTimer
+00:C0A5 _grid_x
+00:C0A7 _grid_y
+00:C0A9 _PlayerControlFlag
+00:C0AA _char_player
+00:C0AF _map_plum_village
+00:C0B2 _sprite_soran_up_0
+00:C0BC _sprite_soran_down_0
+00:C0C6 _Font_1
+00:C3A6 _Tileset_1
+00:C6B6 _Map_PlumVillagePLN0
+00:C846 _Map_PlumVillagePLN1
+00:C9D6 _Soran_Sprites
+; Area: _BSS
+00:CAE6 __cpu
+00:CAE7 .mode
+00:CAE8 __io_out
+00:CAE9 __io_in
+00:CAEA __io_status
+00:CAEB .vbl_done
+00:CAEC __current_bank
+00:CAED _sys_time
+00:CAED .sys_time
+00:CAEF .int_0x40
+00:CAFF .int_0x48
+00:CB0F .int_0x50
+00:CB1F .int_0x58
+00:CB2F .int_0x60
+; Area: _HEAP
+00:CB3F _malloc_heap_start
+; Area: _OVERLAY
+; Area: _ISEG
+; Area: _BSEG
+; Area: _XSEG
+; Area: _CODE_2
+01:4000 _Collision_Check_TL
+01:40B4 _PlumVillageColl
+01:4384 _Collision_Check_TR
+01:443F _Collision_Check_BL
+01:44FA _Collision_Check_BR
+01:45BC _performant_delay
+01:45D0 _build_sprite
+01:47A5 _anim_sprite
+01:47A6 _move_npc
+01:482D _walk_npc
+01:499E _fade_out
+01:4A14 _fade_in
+01:4A8A _Anim_PlayerWalk
+01:4B68 _Update_Map
+01:4B69 _Update_Joypad
+01:4D99 _Set_Soran_Sprite
+01:4DEB _Gameplay
+; Area: _CODE_3
+01:4000 _set_bkg_map
+01:4045 _Palette_BKG
+01:4075 _Palette_Sprite_1
+01:4085 _set_bkg_tileset
+01:409A _Load_Font_1
+01:40AC _Draw_Titlescreen
+01:413C _Load_Soran

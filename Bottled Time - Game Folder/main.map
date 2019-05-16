@@ -1,0 +1,324 @@
+AREA .  .ABS.
+	RADIX HEX
+	BASE 0000
+	SIZE 0000
+	ATTRIB ABS OVR
+	GLOBALS
+		l__HEAP	0000
+		l__BSEG	0000
+		l_.  .ABS.	0000
+		l__GSFINAL	0000
+		l__ISEG	0000
+		s_.  .ABS.	0000
+		s__HEADER	0000
+		l__XSEG	0000
+		.init	0000
+		l__OVERLAY	0000
+		_player	0000
+		l__LIT	0000
+		l__GSINITTAIL	0001
+		l__BSS	0059
+		l__CODE	00DD
+		l__CODE_3	015F
+		l__HEADER	01E1
+		l__HOME	01FB
+		s__CODE	0200
+		l__BASE	0265
+		s__HOME	02DD
+		s__BASE	04D8
+		s__LIT	073D
+		s__GSINIT	073D
+		l__DATA	0A46
+		l__CODE_2	0E0B
+		l__GSINIT	3CC5
+		s__CODE_2	4000
+		s__CODE_3	4000
+		s__GSINITTAIL	4402
+		s__GSFINAL	4403
+		.OAM	C000
+		s__DATA	C0A0
+		s__BSS	CAE6
+		s__HEAP	CB3F
+		s__BSEG	CB3F
+		s__ISEG	CB3F
+		s__XSEG	CB3F
+		s__OVERLAY	CB3F
+		.STACK	E000
+		.refresh_OAM	FF80
+AREA _CODE
+	RADIX HEX
+	BASE 0200
+	SIZE 00DD
+	ATTRIB REL CON
+	GLOBALS
+		_Reset_Graphics	0200
+		_set_bkg_palette_entry	0222
+		_set_sprite_palette_entry	024A
+		_cpu_slow	0272
+		_cpu_fast	028D
+		_cgb_compatibility	0294
+AREA _HEADER
+	RADIX HEX
+	BASE 0000
+	SIZE 01E1
+	ATTRIB ABS OVR
+	GLOBALS
+		_exit	01D2
+AREA _HOME
+	RADIX HEX
+	BASE 02DD
+	SIZE 01FB
+	ATTRIB REL CON
+	GLOBALS
+		.set_mode	02DD
+		.remove_VBL	02ED
+		.remove_LCD	02F3
+		.remove_TIM	02F9
+		.remove_SIO	02FF
+		.remove_JOY	0305
+		.add_VBL	030B
+		.add_LCD	0311
+		.add_TIM	0317
+		.add_SIO	031D
+		.add_JOY	0323
+		.remove_int	0329
+		.add_int	0349
+		.wait_vbl_done	0365
+		_wait_vbl_done	0365
+		_display_off	037C
+		.display_off	037C
+		.serial_IO	039D
+		_mode	03CC
+		_get_mode	03D5
+		_enable_interrupts	03DA
+		_disable_interrupts	03DC
+		_reset	03DE
+		.reset	03DE
+		_set_interrupts	03E4
+		_remove_VBL	03EF
+		_remove_LCD	03FA
+		_remove_TIM	0405
+		_remove_SIO	0410
+		_remove_JOY	041B
+		_add_VBL	0426
+		_add_LCD	0431
+		_add_TIM	043C
+		_add_SIO	0447
+		_add_JOY	0452
+		_clock	045D
+		__printTStates	0466
+		banked_call	0467
+		banked_ret	0480
+		_main	0489
+AREA _BASE
+	RADIX HEX
+	BASE 04D8
+	SIZE 0265
+	ATTRIB REL CON
+	GLOBALS
+		.set_sprite_prop	04D8
+		_set_sprite_prop	04E5
+		.padup	04F0
+		_waitpadup	04F0
+		.jpad	0500
+		.wait_pad	052D
+		_joypad	0534
+		_waitpad	0539
+		_set_bkg_palette	0543
+		_set_sprite_palette	056E
+		.mv_sprite	0599
+		_move_sprite	05A8
+		__mulschar	05B5
+		__muluchar	05B5
+		__mulsint	05C1
+		__muluint	05C1
+		.mulu16	05D5
+		.mul16	05D5
+		_set_win_data	05EB
+		_set_bkg_data	05EB
+		_set_sprite_data	0638
+		.scroll_sprite	0667
+		_scroll_sprite	0678
+		.set_sprite_tile	0685
+		_set_sprite_tile	0692
+		.copy_vram	069D
+		_get_data	06AC
+		_set_data	06AC
+		_set_bkg_tiles	06BF
+		.set_xy_wtt	06D3
+		.set_xy_btt	06E4
+		.set_xy_tt	06F3
+		_set_tiles	0724
+AREA _LIT
+	RADIX HEX
+	BASE 073D
+	SIZE 0000
+	ATTRIB REL CON
+AREA _GSINIT
+	RADIX HEX
+	BASE 073D
+	SIZE 3CC5
+	ATTRIB REL CON
+	GLOBALS
+		gsinit	073D
+AREA _GSINITTAIL
+	RADIX HEX
+	BASE 4402
+	SIZE 0001
+	ATTRIB REL CON
+AREA _GSFINAL
+	RADIX HEX
+	BASE 4403
+	SIZE 0000
+	ATTRIB REL CON
+AREA _DATA
+	RADIX HEX
+	BASE C0A0
+	SIZE 0A46
+	ATTRIB REL CON
+	GLOBALS
+		_Playing	C0A0
+		_Joy	C0A1
+		_PlayerDirection	C0A2
+		_PlayerAnimCycle	C0A3
+		_PlayerAnimTimer	C0A4
+		_grid_x	C0A5
+		_grid_y	C0A7
+		_PlayerControlFlag	C0A9
+		_char_player	C0AA
+		_map_plum_village	C0AF
+		_sprite_soran_up_0	C0B2
+		_sprite_soran_down_0	C0BC
+		_Font_1	C0C6
+		_Tileset_1	C3A6
+		_Map_PlumVillagePLN0	C6B6
+		_Map_PlumVillagePLN1	C846
+		_Soran_Sprites	C9D6
+AREA _BSS
+	RADIX HEX
+	BASE CAE6
+	SIZE 0059
+	ATTRIB REL CON
+	GLOBALS
+		__cpu	CAE6
+		.mode	CAE7
+		__io_out	CAE8
+		__io_in	CAE9
+		__io_status	CAEA
+		.vbl_done	CAEB
+		__current_bank	CAEC
+		_sys_time	CAED
+		.sys_time	CAED
+		.int_0x40	CAEF
+		.int_0x48	CAFF
+		.int_0x50	CB0F
+		.int_0x58	CB1F
+		.int_0x60	CB2F
+AREA _HEAP
+	RADIX HEX
+	BASE CB3F
+	SIZE 0000
+	ATTRIB REL CON
+	GLOBALS
+		_malloc_heap_start	CB3F
+AREA _OVERLAY
+	RADIX HEX
+	BASE CB3F
+	SIZE 0000
+	ATTRIB REL CON
+AREA _ISEG
+	RADIX HEX
+	BASE CB3F
+	SIZE 0000
+	ATTRIB REL CON
+AREA _BSEG
+	RADIX HEX
+	BASE CB3F
+	SIZE 0000
+	ATTRIB REL CON
+AREA _XSEG
+	RADIX HEX
+	BASE CB3F
+	SIZE 0000
+	ATTRIB REL CON
+AREA _CODE_2
+	RADIX HEX
+	BASE 4000
+	SIZE 0E0B
+	ATTRIB REL CON
+	GLOBALS
+		_Collision_Check_TL	4000
+		_PlumVillageColl	40B4
+		_Collision_Check_TR	4384
+		_Collision_Check_BL	443F
+		_Collision_Check_BR	44FA
+		_performant_delay	45BC
+		_build_sprite	45D0
+		_anim_sprite	47A5
+		_move_npc	47A6
+		_walk_npc	482D
+		_fade_out	499E
+		_fade_in	4A14
+		_Anim_PlayerWalk	4A8A
+		_Update_Map	4B68
+		_Update_Joypad	4B69
+		_Set_Soran_Sprite	4D99
+		_Gameplay	4DEB
+AREA _CODE_3
+	RADIX HEX
+	BASE 4000
+	SIZE 015F
+	ATTRIB REL CON
+	GLOBALS
+		_set_bkg_map	4000
+		_Palette_BKG	4045
+		_Palette_Sprite_1	4075
+		_set_bkg_tileset	4085
+		_Load_Font_1	409A
+		_Draw_Titlescreen	40AC
+		_Load_Soran	413C
+MODULES
+	FILE c:\gbdk\lib/small/asxxxx/gb/crt0.o
+		NAME Runtime
+	FILE main.o
+		NAME lcc122120
+	FILE bank2.o
+		NAME lcc121040
+	FILE bank3.o
+		NAME lcc79840
+LIBRARIES
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE set_prop.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE pad.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE cgb.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE mv_spr.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gbz80/gbz80.lib
+		MODULE mul.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE set_data.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE scroll_s.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE set_spr.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE cpy_data.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE set_bk_t.o
+	LIBRARY c:\gbdk\lib/small/asxxxx/gb/gb.lib
+		MODULE set_xy_t.o
+USERBASEDEF
+	_CODE=0x0200
+	_DATA=0xC0A0
+	_CODE_1=0x4000
+	_CODE_2=0x4000
+	_CODE_3=0x4000
+USERGLOBALDEF
+	.OAM=0xC000
+	.STACK=0xE000
+	.refresh_OAM=0xFF80
+	.init=0x0000
+
+?ASlink-Warning-Undefined Global _player referenced by module lcc121040

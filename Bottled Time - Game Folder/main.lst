@@ -1,0 +1,248 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : FreeWare ANSI-C Compiler
+                              3 ; Version 2.2.1 Thu May 16 00:43:52 2019
+                              4 
+                              5 ;--------------------------------------------------------
+                              6 	.module lcc122120
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _main
+                             12 	.globl _Reset_Graphics
+                             13 	.globl _Load_Soran
+                             14 	.globl _Draw_Titlescreen
+                             15 	.globl _Load_Font_1
+                             16 	.globl _Gameplay
+                             17 	.globl _Set_Soran_Sprite
+                             18 	.globl _fade_in
+                             19 	.globl _move_npc
+                             20 	.globl _disable_interrupts
+                             21 	.globl _enable_interrupts
+                             22 	.globl _waitpad
+                             23 	.globl _main
+                             24 	.globl _Reset_Graphics
+                             25 ;--------------------------------------------------------
+                             26 ; Externals used
+                             27 ;--------------------------------------------------------
+                             28 	.globl __io_out
+                             29 	.globl __io_in
+                             30 	.globl __io_status
+                             31 	.globl _sys_time
+                             32 	.globl __cpu
+                             33 ;--------------------------------------------------------
+                             34 ; special function registers
+                             35 ;--------------------------------------------------------
+                             36 ;--------------------------------------------------------
+                             37 ; special function bits 
+                             38 ;--------------------------------------------------------
+                             39 ;--------------------------------------------------------
+                             40 ; internal ram data
+                             41 ;--------------------------------------------------------
+                             42 	.area _DATA
+                             43 ;--------------------------------------------------------
+                             44 ; overlayable items in internal ram 
+                             45 ;--------------------------------------------------------
+                             46 	.area _OVERLAY
+                             47 ;--------------------------------------------------------
+                             48 ; indirectly addressable internal ram data
+                             49 ;--------------------------------------------------------
+                             50 	.area _ISEG
+                             51 ;--------------------------------------------------------
+                             52 ; bit data
+                             53 ;--------------------------------------------------------
+                             54 	.area _BSEG
+                             55 ;--------------------------------------------------------
+                             56 ; external ram data
+                             57 ;--------------------------------------------------------
+                             58 	.area _XSEG
+                             59 ;--------------------------------------------------------
+                             60 ; global & static initialisations
+                             61 ;--------------------------------------------------------
+                             62 	.area _GSINIT
+                             63 	.area _GSFINAL
+                             64 	.area _GSINIT
+                             65 ;--------------------------------------------------------
+                             66 ; Home
+                             67 ;--------------------------------------------------------
+                             68 	.area _HOME
+                             69 ;	main.c 46
+                             70 ; genLabel
+                             71 ; genFunction
+                             72 ;	---------------------------------
+                             73 ; Function main
+                             74 ; ---------------------------------
+   0000                      75 ___main_start:
+   0000                      76 _main:
+                             77 	
+                             78 ;	main.c 48
+                             79 ; genAssign
+   0000 11 47 FF             80 	ld	de,#0xFF47
+                             81 ; genAssign (pointer)
+   0003 3E FF                82 	ld	a,#0xFF
+   0005 12                   83 	ld	(de),a
+                             84 ;	main.c 49
+                             85 ; genAssign
+   0006 11 00 30             86 	ld	de,#0x3000
+                             87 ; genAssign (pointer)
+   0009 3E 00                88 	ld	a,#0x00
+   000B 12                   89 	ld	(de),a
+                             90 ; genAssign
+   000C 11 00 20             91 	ld	de,#0x2000
+                             92 ; genAssign (pointer)
+   000F 3E 03                93 	ld	a,#0x03
+   0011 12                   94 	ld	(de),a
+                             95 ;	main.c 51
+                             96 ; genCall
+   0012 CD 00 00             97 	call	_Load_Font_1
+                             98 ;	main.c 53
+                             99 ; genCall
+   0015 CD 00 00            100 	call	_Draw_Titlescreen
+                            101 ;	main.c 55
+                            102 ; genCall
+   0018 CD 00 00            103 	call	_Load_Soran
+                            104 ;	main.c 56
+                            105 ; genAssign
+   001B 11 00 30            106 	ld	de,#0x3000
+                            107 ; genAssign (pointer)
+   001E 3E 00               108 	ld	a,#0x00
+   0020 12                  109 	ld	(de),a
+                            110 ; genAssign
+   0021 11 00 20            111 	ld	de,#0x2000
+                            112 ; genAssign (pointer)
+   0024 3E 02               113 	ld	a,#0x02
+   0026 12                  114 	ld	(de),a
+                            115 ;	main.c 58
+                            116 ; genCall
+   0027 CD 00 00            117 	call	_Set_Soran_Sprite
+                            118 ;	main.c 59
+                            119 ; genIpush
+   002A 3E 01               120 	ld	a,#0x01
+   002C F5                  121 	push	af
+   002D 33                  122 	inc	sp
+                            123 ; genIpush
+   002E 3E 0A               124 	ld	a,#0x0A
+   0030 F5                  125 	push	af
+   0031 33                  126 	inc	sp
+                            127 ; genIpush
+   0032 3E 0A               128 	ld	a,#0x0A
+   0034 F5                  129 	push	af
+   0035 33                  130 	inc	sp
+                            131 ; genIpush
+   0036 3E 00               132 	ld	a,#0x00
+   0038 F5                  133 	push	af
+   0039 33                  134 	inc	sp
+                            135 ; genCall
+   003A CD 00 00            136 	call	_move_npc
+   003D E8 04               137 	lda	sp,4(sp)
+                            138 ;	main.c 61
+                            139 ; genIpush
+   003F 3E 80               140 	ld	a,#0x80
+   0041 F5                  141 	push	af
+   0042 33                  142 	inc	sp
+                            143 ; genCall
+   0043 CD 00 00            144 	call	_waitpad
+   0046 E8 01               145 	lda	sp,1(sp)
+                            146 ;	main.c 63
+                            147 ; genCall
+   0048 CD 00 00            148 	call	_fade_in
+                            149 ;	main.c 65
+                            150 ; genCall
+   004B CD 00 00            151 	call	_Gameplay
+                            152 ; genLabel
+   004E                     153 00101$:
+                            154 ; genEndFunction
+                            155 	
+   004E C9                  156 	ret
+   004F                     157 ___main_end:
+                            158 	.area _CODE
+                            159 ;--------------------------------------------------------
+                            160 ; code
+                            161 ;--------------------------------------------------------
+                            162 	.area _CODE
+                            163 ;	main.c 35
+                            164 ; genLabel
+                            165 ; genFunction
+                            166 ;	---------------------------------
+                            167 ; Function Reset_Graphics
+                            168 ; ---------------------------------
+   0000                     169 ___Reset_Graphics_start:
+   0000                     170 _Reset_Graphics:
+                            171 	
+                            172 ;	main.c 37
+                            173 ; genCall
+   0000 CD 00 00            174 	call	_disable_interrupts
+                            175 ;	main.c 38
+                            176 ; genAssign
+   0003 11 00 30            177 	ld	de,#0x3000
+                            178 ; genAssign (pointer)
+   0006 3E 00               179 	ld	a,#0x00
+   0008 12                  180 	ld	(de),a
+                            181 ; genAssign
+   0009 11 00 20            182 	ld	de,#0x2000
+                            183 ; genAssign (pointer)
+   000C 3E 03               184 	ld	a,#0x03
+   000E 12                  185 	ld	(de),a
+                            186 ;	main.c 40
+                            187 ; genAssign
+   000F 11 00 30            188 	ld	de,#0x3000
+                            189 ; genAssign (pointer)
+   0012 3E 00               190 	ld	a,#0x00
+   0014 12                  191 	ld	(de),a
+                            192 ; genAssign
+   0015 11 00 20            193 	ld	de,#0x2000
+                            194 ; genAssign (pointer)
+   0018 3E 02               195 	ld	a,#0x02
+   001A 12                  196 	ld	(de),a
+                            197 ;	main.c 41
+                            198 ; genCall
+   001B CD 00 00            199 	call	_enable_interrupts
+                            200 ;	main.c 43
+                            201 ; genCall
+   001E CD 00 00            202 	call	_Gameplay
+                            203 ; genLabel
+   0021                     204 00101$:
+                            205 ; genEndFunction
+                            206 	
+   0021 C9                  207 	ret
+   0022                     208 ___Reset_Graphics_end:
+                            209 	.area _CODE
+ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 1.
+
+Symbol Table
+
+    _Draw_Titlescreen                  **** GX
+    _Gameplay                          **** GX
+    _Load_Font_1                       **** GX
+    _Load_Soran                        **** GX
+  0 _Reset_Graphics                    0000 GR
+    _Set_Soran_Sprite                  **** GX
+  0 ___Reset_Graphics_end              0022 R
+  0 ___Reset_Graphics_start            0000 R
+  8 ___main_end                        004F R
+  8 ___main_start                      0000 R
+    __cpu                              **** GX
+    __io_in                            **** GX
+    __io_out                           **** GX
+    __io_status                        **** GX
+    _disable_interrupts                **** GX
+    _enable_interrupts                 **** GX
+    _fade_in                           **** GX
+  8 _main                              0000 GR
+    _move_npc                          **** GX
+    _sys_time                          **** GX
+    _waitpad                           **** GX
+
+ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 2.
+
+Area Table
+
+   0 _CODE                              size   22   flags 0
+   1 _DATA                              size    0   flags 0
+   2 _OVERLAY                           size    0   flags 0
+   3 _ISEG                              size    0   flags 0
+   4 _BSEG                              size    0   flags 0
+   5 _XSEG                              size    0   flags 0
+   6 _GSINIT                            size    0   flags 0
+   7 _GSFINAL                           size    0   flags 0
+   8 _HOME                              size   4F   flags 0
